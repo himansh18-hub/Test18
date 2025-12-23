@@ -1,21 +1,22 @@
 
-# Use an official Python runtime as a parent image
-FROM python:3.10-slim
+# Use official Ubuntu image
+FROM ubuntu:22.04
 
-# Set the working directory inside the container
+# Set environment variables to avoid interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update and install basic packages
+RUN apt-get update && apt-get install -y \
+    curl \
+    vim \
+    git \
+    && apt-get clean
+
+# Set working directory
 WORKDIR /app
 
-# Copy the requirements file into the container
-COPY requirements.txt .
+# Copy files (optional)
+# COPY . .
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the application code
-COPY . .
-
-# Expose the application port
-EXPOSE 5000
-
-# Define the command to run the app
-CMD ["python", "app.py"]
+# Default command
+CMD ["/bin/bash"]
