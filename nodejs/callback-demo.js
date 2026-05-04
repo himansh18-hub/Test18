@@ -5,7 +5,7 @@ const handleWriteResponse = function(error, data) {
 }
 
 function callback_demo() {
-    myfs.readFile('data.csv', function(error, data) {
+    myfs.readFile('data.csv', (error, data) => {
         if (error) {
             console.log(error)
         }
