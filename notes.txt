@@ -1,3 +1,19 @@
+front-end issue
+---------------
+set NODE_OPTIONS=--openssl-legacy-provider
+
+
+signup
+----------
+{
+    "username": "user2",
+    "password": "password123",
+    "email": "user1@example.com",
+    "roles":["user"]
+  }
+
+
+
 npm i -g create-react-app
 create-react-app user-ui
 cd user-ui
