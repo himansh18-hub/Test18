@@ -1,0 +1,64 @@
+## React Redux JWT Authentication & Authorization example
+
+Build a React Redux Token Authentication example with JWT, LocalStorage, React Router, Axios and Bootstrap:
+- JWT Authentication Flow for User Signup & User Login
+- Project Structure for React Redux JWT Authentication, LocalStorage, Router, Axios
+- Working with Redux Actions, Reducers, Store for Application state
+- Creating React Components with Form Validation
+- React Components for accessing protected Resources (Authorization)
+- Dynamic Navigation Bar in React App
+set NODE_OPTIONS=--openssl-legacy-provider
+## User Registration and User Login Flow
+For JWT Authentication, we’re gonna call 2 endpoints:
+
+- POST `api/auth/signup` for User Registration
+- POST `api/auth/signin` for User Login
+
+The following flow shows you an overview of Requests and Responses that React Client will make or receive. This React Client must add a JWT to HTTP Header before sending request to protected resources.
+set NODE_OPTIONS=--openssl-legacy-provider
+
+### Set port
+.env
+```
+PORT=8081
+```
+
+## Note:
+Open `src/services/auth-header.js` and modify `return` statement for appropriate back-end (found in the tutorial).
+
+```js
+export default function authHeader() {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  if (user && user.accessToken) {
+    // return { Authorization: 'Bearer ' + user.accessToken }; // for Spring Boot back-end
+    return { 'x-access-token': user.accessToken };             // for Node.js Express back-end
+  } else {
+    return {};
+  }
+}
+```
+
+## Project setup
+
+In the project directory, you can run:
+
+```
+npm install
+# or
+yarn install
+```
+
+or
+
+### Compiles and hot-reloads for development
+
+```
+npm start
+# or
+yarn start
+```
+
+Open [http://localhost:8081](http://localhost:8081) to view it in the browser.
+
+The page will reload if you make edits.
