@@ -1,20 +1,18 @@
-const express = require('express');
-const app = express(); //initil
-app.use(express.json())
-app.use('/hello123', function(request, response) {
-    console.log(request.headers);
+const express = require('express'); //node module
+const app = express(); //initialise
+app.use(express.json()) //middleware
 
-    console.log(request.query.product);
-    console.log(request.body.product);
-    return response.send("hello");
-});
 const router = express.Router();
 
 router.post('/admin', function(request, response) {
     console.log(request.body.name);
     response.send("created");
 })
-
+router.get('/hello123', function(request, response) { // http://localhost:3001/hello123
+    console.log(request.headers);
+    console.log(request.query.product);
+    return response.send("hello");
+});
 router.delete("/", function(request, response) {
     response.send('deleted');
 })
