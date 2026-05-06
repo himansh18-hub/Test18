@@ -2,17 +2,12 @@ import React from "react";
 
 const TaskItem = ({ task, deleteTask }) => {
 
-    return ( <
-        div className = "task-card" >
-        <
-        p > { task.title } < /p>
+    return (<
+        div className="task-card" >
+        <p > {task.title} < /p>
 
-        <
-        button onClick = {
-            () => deleteTask(task.id) } >
-        Delete <
-        /button> <
-        /div>
+            <button onClick={() => deleteTask(task)} >
+                Delete </button> </div>
     );
 };
 

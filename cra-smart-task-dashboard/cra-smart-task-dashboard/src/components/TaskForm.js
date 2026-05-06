@@ -1,13 +1,11 @@
 import { useState } from "react";
 
 const TaskForm = ({ addTask }) => {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("Task555");//state
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!title.trim()) return;
-
     addTask(title);
     setTitle("");
   };
@@ -18,7 +16,10 @@ const TaskForm = ({ addTask }) => {
         type="text"
         placeholder="Enter task"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) =>{
+          console.log(e.target.value);
+           setTitle(e.target.value);
+        }}
       />
 
       <button type="submit">
