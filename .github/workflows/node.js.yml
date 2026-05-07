@@ -1,4 +1,6 @@
 name: frontend-workflow
+
+# Trigger on push or PR to main
 on:
   push:
     branches: [ "main" ]
